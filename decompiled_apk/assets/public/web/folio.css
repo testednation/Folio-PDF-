@@ -1,0 +1,17 @@
+/* Folio skin for the pdf.js viewer: hide desktop-only controls, bigger touch targets */
+#openFile,#secondaryOpenFile,#downloadButton,#secondaryDownload,#viewBookmark,#secondaryViewBookmark,#presentationMode,#secondaryPresentationMode,#printButton,#secondaryPrint,#documentProperties{display:none!important}
+:root{--toolbar-bg-color:#ffffff;--main-color:#1f2333}
+#toolbarContainer{min-height:44px}.toolbarButton{min-width:36px;min-height:36px}
+.folioBad{outline:3px solid #ef4444!important;outline-offset:1px;background:#fee2e2!important}
+
+.page.folioCurrent{box-shadow:0 0 0 3px #6366f1,0 6px 24px #6366f155!important;transition:box-shadow .25s}
+.page{transition:box-shadow .25s}
+.page .folioBmk{position:absolute;right:14px;top:-4px;width:18px;height:28px;background:#6366f1;clip-path:polygon(0 0,100% 0,100% 100%,50% 75%,0 100%);z-index:5}
+html.folioNight #viewerContainer .page canvas,html.folioNight #viewerContainer .page .xfaLayer{filter:invert(.92) hue-rotate(180deg)}
+html.folioNight #viewerContainer{background:#111}
+#viewerContainer{scrollbar-width:none}#viewerContainer::-webkit-scrollbar{display:none}
+
+.folioFocus{outline:3px solid #6366f1!important;outline-offset:2px;box-shadow:0 0 0 8px #6366f133!important;background:#eef2ff!important;transition:all .2s}
+.folioBad{background:#fef2f2!important}
+.folioOk{background:#f0fdf4!important}
+#viewerContainer{padding-bottom:220px}

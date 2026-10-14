@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#4f46e5">
+<title>Folio PDF</title><link rel="stylesheet" href="app.css"></head><body>
+<div id="home" class="screen">
+ <header class="hero"><div class="logo">F</div><div><h1>Folio</h1><p>PDFs, XFA forms, EPUB books, text and images, all offline</p></div></header>
+ <button id="openBtn" class="fab"><span>＋</span> Open file</button>
+ <input id="file" type="file" accept=".pdf,.epub,.txt,.md,.markdown,.html,.htm,.jpg,.jpeg,.png,.webp,.gif,application/pdf,application/epub+zip,text/*,image/*" hidden>
+ <div id="tplWrap" hidden><h2>Templates</h2><ul id="templates" class="list"></ul></div><div id="cont" hidden><h2>Continue reading</h2><div id="contCard"></div></div><div id="tplWrap2"></div><h2>Recent</h2><input id="q" type="search" placeholder="Search your files" autocomplete="off"><ul id="recent"></ul><p id="none" class="muted">Files you open appear here. They stay on this device.</p>
+</div>
+<div id="viewer" class="screen" hidden>
+ <div class="topbar"><button id="back" class="icon" aria-label="Back">‹</button><div id="title">Document</div><span id="autoS" class="muted small"></span>
+  <span id="badge" hidden>XFA form</span><button id="fillBtn" class="pill alt">Autofill</button><button id="valBtn" class="pill alt">Validate</button><button id="saveBtn" class="pill">Save</button><button id="shareBtn" class="icon" aria-label="Share">⤴</button></div>
+ <div id="vwrap"><iframe id="frame" src="web/viewer.html?file=#zoom=page-width"></iframe>
+  <div id="rail"><div id="thumb"><span id="bubble">1</span></div></div>
+  <div id="pbar"><div id="pfill"></div></div>
+  <button id="bmFab" aria-label="Bookmarks and reading options">🔖</button></div>
+</div>
+<div id="sheet" hidden><div class="sh"><b id="shT"></b><button id="shX" class="icon">×</button></div><ul id="issues"></ul></div><div id="fillSheet" class="sheet" hidden><div class="sh"><b>Autofill</b><button id="fsX" class="icon">×</button></div>
+ <p class="muted small">Fill this form with answers you've used before. Matching is by field name and label, and nothing leaves your phone.</p>
+ <ul id="profiles" class="list"></ul>
+ <div class="row"><button id="saveProfile" class="pill alt">Save answers as profile</button><button id="saveTpl" class="pill alt">Save as template</button></div></div>
+<div id="readSheet" class="sheet" hidden><div class="sh"><b>Bookmarks</b><button id="rsX" class="icon">×</button></div>
+ <div class="row" style="margin:0 0 12px"><button id="addBm" class="pill">＋ Bookmark this page</button><button id="night" class="pill alt">Night mode</button><button id="fitW" class="pill alt">Fit width</button></div>
+ <div class="row" style="margin:0 0 12px"><button id="signBtn" class="pill alt">✍️ Sign</button><button id="pagesBtn" class="pill alt">▦ Pages &amp; merge</button></div>
+ <ul id="bms" class="list"></ul></div>
+<div id="toast"></div>
+<div id="reader" hidden><div class="topbar"><button id="rBack" class="icon" aria-label="Back">‹</button><div id="rTitle">Book</div>
+ <button id="rToc" class="icon" aria-label="Contents">☰</button><button id="rAa" class="icon" aria-label="Text settings">Aa</button><button id="rBm" class="icon" aria-label="Bookmarks">🔖</button></div>
+ <div id="rPbar"><div id="rPfill"></div></div><div id="rView"></div>
+ <button id="rPrev" class="rnav l" aria-label="Previous page"></button><button id="rNext" class="rnav r" aria-label="Next page"></button>
+ <div id="rFoot">…</div></div>
+<div id="rSheet" class="sheet" hidden><div class="sh"><b id="rsTitle">Contents</b><button id="rsClose" class="icon">×</button></div><div id="rsBody"></div></div>
+<script src="vendor/jszip.min.js"></script><script src="vendor/epub.min.js"></script><script src="vendor/marked.min.js"></script><script src="vendor/pdf-lib.min.js"></script>
+<script src="app.js"></script><script src="reader.js"></script><div id="sigSheet" class="sheet" hidden><div class="sh"><b>Your signature</b><button id="sgX" class="icon">×</button></div>
+ <canvas id="pad" width="760" height="300"></canvas><div class="row" style="margin-top:10px"><button id="sgClear" class="pill alt">Clear</button><button id="sgOk" class="pill">Use signature</button></div></div>
+<div id="pgSheet" class="sheet" hidden><div class="sh"><b>Pages</b><button id="pgX" class="icon">×</button></div>
+ <div id="pgGrid"></div><div class="row" style="margin-top:10px"><button id="pgAdd" class="pill alt">＋ Merge PDFs</button><button id="pgOk" class="pill">Apply</button></div>
+ <input id="mfile" type="file" accept="application/pdf,.pdf" multiple hidden></div>
+<div id="tapHint" hidden>Tap where the signature goes · <u id="tapCancel">Cancel</u></div>
+<div id="guide" hidden><div id="gTop"><span id="gStep">Field 1 of 1</span><button id="gClose" class="icon" aria-label="Close guide">×</button></div>
+ <div id="gLab">…</div><div id="gMsg"></div>
+ <div id="gBtns"><button id="gPrev" class="pill alt">‹ Back</button><button id="gNext" class="pill">Next ›</button><button id="gDone" class="pill done">Finish ✓</button></div>
+ <div id="gBar"><i id="gFill"></i></div></div>
+<button id="gStart" class="pill" hidden>✎ Fill step by step</button>
+<script src="tools.js"></script><script src="guide.js"></script><script src="autosave.js"></script><script src="acrobat.js"></script><script src="pro.js"></script><script src="res.js"></script></body></html>
